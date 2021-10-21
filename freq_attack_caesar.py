@@ -4,7 +4,7 @@ from collections import Counter
 most_common_letters = ['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u']
 
 
-def letter_frequency_attack(encoded_text):
+def letter_frequency_attack(encoded_text: str) -> tuple:
     """
     Performs letter frequency attack on th encrypted text
     :param encoded_text: encrypted text

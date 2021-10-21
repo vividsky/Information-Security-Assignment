@@ -4,7 +4,7 @@ from collections import Counter
 most_common_letters = ['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u']
 
 
-def calculate_key(x1, y1, x2, y2):
+def calculate_key(x1: str, y1: str, x2: str, y2: str) -> list[int, int]:
     """
     Calculates the value of a and b that will be used to decrypt affine cipher
     :param x1: Possible letter #1 in plaintext (before encoding)
@@ -38,7 +38,7 @@ def calculate_key(x1, y1, x2, y2):
             return [1, 1]
 
 
-def letter_frequency_attack(encoded_text):
+def letter_frequency_attack(encoded_text: str) -> tuple:
     """
     Performs letter frequency attack on th encrypted text
     :param encoded_text: encrypted text
@@ -66,4 +66,3 @@ def letter_frequency_attack(encoded_text):
         top_10_possible_texts.append(result)
 
     return top_10_possible_keys, top_10_possible_texts
-

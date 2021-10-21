@@ -1,4 +1,4 @@
-def encrypt(plain_text, key):
+def encrypt(plain_text: str, key: int) -> str:
     """
     Encrypts a message using Caesar cipher
     :param plain_text: original message
@@ -14,7 +14,7 @@ def encrypt(plain_text, key):
     return ''.join(encoded_text)
 
 
-def decrypt(encoded_text, key):
+def decrypt(encoded_text: str, key: int) -> str:
     """
     Decrypts a message encoded with Caesar cipher
     :param encoded_text: encrypted message
