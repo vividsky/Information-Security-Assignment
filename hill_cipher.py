@@ -1,6 +1,7 @@
 import math
 
-def create_inverse_key_matrix(key):
+
+def create_inverse_key_matrix(key: str) -> list[list[int]]:
     """
     Creates matrix inverse (if possible)
     :param key: 2X2 key matrix
@@ -33,7 +34,7 @@ def create_inverse_key_matrix(key):
     return key_matrix
 
 
-def create_key_matrix(key):
+def create_key_matrix(key: str) -> list[list[int]]:
     """
     Creates a 2X2 matrix from the key string
     :param key: key string used to encrypt the message
@@ -48,7 +49,7 @@ def create_key_matrix(key):
     return key_matrix
 
 
-def encrypt_column(key_matrix, column):
+def encrypt_column(key_matrix: list[list[int]], column: list[list[int]]) -> list[list[int]]:
     """
     Multiplies a single column with the key_matrix
     :param key_matrix: 2X2 matrix
@@ -63,7 +64,7 @@ def encrypt_column(key_matrix, column):
     return encrypted_column
 
 
-def matrix_to_string(encrypted):
+def matrix_to_string(encrypted: list[list[int]]) -> str:
     """
         Creates encrypted string from encrypted matrix
         :param encrypted: encrypted matrix of the form 2XM
@@ -76,7 +77,7 @@ def matrix_to_string(encrypted):
     return encrypted_string
 
 
-def encrypted_message(text, key, conversion_type = "e"):
+def encrypted_message(text: str, key: str, conversion_type: str = "e") -> str:
     """
     Encrypts a message using Hill cipher
     :param text: original message
@@ -108,8 +109,7 @@ def encrypted_message(text, key, conversion_type = "e"):
     return encrypted_string
 
 
-
-def result(inp_text, inp_key, conversion_type):
+def result(inp_text: str, inp_key: str, conversion_type: int) -> None:
     """
     Code execution starts here
     :return: None
@@ -132,4 +132,3 @@ def result(inp_text, inp_key, conversion_type):
         print("Result: ", encrypted_message(text, key, "e"))
     else:
         print("Result: ", encrypted_message(text, key, "d"))
-

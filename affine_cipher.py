@@ -1,4 +1,4 @@
-def encrypt(text, key):
+def encrypt(text: str, key: list[int, int]) -> str:
     """
     Encrypts a message using Affine cipher
     :param text: original message
@@ -18,7 +18,7 @@ def encrypt(text, key):
     return encrypted_string
 
 
-def decrypt(text, key):
+def decrypt(text: str, key: list[int, int]) -> str:
     """
     Decrypts a message encoded with Affine cipher
     :param text: encrypted message

@@ -6,7 +6,7 @@ most_common_letters = ['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u']
 
 def letter_frequency_attack(encoded_text: str) -> tuple:
     """
-    Performs letter frequency attack on th encrypted text
+    Performs letter frequency attack on text encrypted using caesar cipher
     :param encoded_text: encrypted text
     :return: Top 10 possible original texts
     """

@@ -1,7 +1,8 @@
 from affine_cipher import decrypt
 from collections import Counter
 
-most_common_letters = ['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u']
+most_common_letter_pairs = [('e', 'a'), ('a', 'e'), ('e', 'r'), ('a', 'r'), ('r', 'e'),
+                            ('r', 'a'), ('e', 'i'), ('a', 'i'), ('r', 'i'), ('i', 'e')]
 
 
 def calculate_key(x1: str, y1: str, x2: str, y2: str) -> list[int, int]:
@@ -40,7 +41,7 @@ def calculate_key(x1: str, y1: str, x2: str, y2: str) -> list[int, int]:
 
 def letter_frequency_attack(encoded_text: str) -> tuple:
     """
-    Performs letter frequency attack on th encrypted text
+    Performs letter frequency attack on text encrypted using affine cipher
     :param encoded_text: encrypted text
     :return: Top 10 possible original texts
     """
@@ -60,7 +61,8 @@ def letter_frequency_attack(encoded_text: str) -> tuple:
     top_10_possible_keys = []
     top_10_possible_texts = []
     for i in range(10):
-        key = calculate_key(most_common_letters[i], most_occurred_1, most_common_letters[i+1], most_occurred_2)
+        key = calculate_key(most_common_letter_pairs[i][0], most_occurred_1,
+                            most_common_letter_pairs[i][1], most_occurred_2)
         top_10_possible_keys.append(key)
         result = decrypt(encoded_text, key)
         top_10_possible_texts.append(result)
