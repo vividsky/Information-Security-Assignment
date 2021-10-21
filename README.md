@@ -2,4 +2,4 @@
 This Repository is for different Encryption and decryption techniques.
 Contributors:
 1. Rishabh Poria
-2. 2. Nidhi Sangwan
+2. Nidhi Sangwan
