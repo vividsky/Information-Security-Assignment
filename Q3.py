@@ -1,4 +1,4 @@
-from CaesarCipher import decrypt
+from caesar_cipher import decrypt
 from collections import Counter
 
 most_common_letters = ['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u']

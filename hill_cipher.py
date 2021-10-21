@@ -109,7 +109,7 @@ def encrypted_message(text, key, conversion_type = "e"):
 
 
 
-def result(inp_text, inp_key):
+def result(inp_text, inp_key, conversion_type):
     """
     Code execution starts here
     :return: None
@@ -128,6 +128,8 @@ def result(inp_text, inp_key):
     key = (key + 'axfg')[:4]
 
     print("Original text: ", text)
-    print("Encrypted text: ", encrypted_message(text, key, "e"))
-    print("Decrypted text: ", encrypted_message(encrypted_message(text, key, "e"), key, "d"))
+    if conversion_type == 0:
+        print("Result: ", encrypted_message(text, key, "e"))
+    else:
+        print("Result: ", encrypted_message(text, key, "d"))
 
