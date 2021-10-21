@@ -1,7 +1,6 @@
 import math
 
-
-def create_inverse_key_matrix(key: str) -> list[list[int]]:
+def create_inverse_key_matrix(key):
     """
     Creates matrix inverse (if possible)
     :param key: 2X2 key matrix
@@ -34,7 +33,7 @@ def create_inverse_key_matrix(key: str) -> list[list[int]]:
     return key_matrix
 
 
-def create_key_matrix(key: str) -> list[list[int]]:
+def create_key_matrix(key):
     """
     Creates a 2X2 matrix from the key string
     :param key: key string used to encrypt the message
@@ -49,7 +48,7 @@ def create_key_matrix(key: str) -> list[list[int]]:
     return key_matrix
 
 
-def encrypt_column(key_matrix: list[list[int]], column: list[list[int]]) -> list[list[int]]:
+def encrypt_column(key_matrix, column):
     """
     Multiplies a single column with the key_matrix
     :param key_matrix: 2X2 matrix
@@ -64,7 +63,7 @@ def encrypt_column(key_matrix: list[list[int]], column: list[list[int]]) -> list
     return encrypted_column
 
 
-def matrix_to_string(encrypted: list[list[int]]) -> str:
+def matrix_to_string(encrypted):
     """
         Creates encrypted string from encrypted matrix
         :param encrypted: encrypted matrix of the form 2XM
@@ -77,7 +76,7 @@ def matrix_to_string(encrypted: list[list[int]]) -> str:
     return encrypted_string
 
 
-def encrypted_message(text: str, key: str, conversion_type: str = "e") -> str:
+def encrypted_message(text, key, conversion_type = "e"):
     """
     Encrypts a message using Hill cipher
     :param text: original message
@@ -109,16 +108,12 @@ def encrypted_message(text: str, key: str, conversion_type: str = "e") -> str:
     return encrypted_string
 
 
-def main():
+
+def result(inp_text, inp_key):
     """
     Code execution starts here
     :return: None
     """
-    print("2X2 HILL CIPHER")
-    inp_text = input("Enter text: ")
-    inp_key = input("Enter key: ")
-    conversion_type = input("Enter type (e for encryption / d for decryption): ")
-
     # Encrypting letters only
     text = ""
     for el in inp_text.lower():
@@ -131,10 +126,8 @@ def main():
             key += el
     # to ensure 4 letter key
     key = (key + 'axfg')[:4]
-    result = encrypted_message(text, key, conversion_type)
-    print("Original message: ", text)
-    print("Decrypted message:" if conversion_type in ('d', 'D') else "Encrypted message:", result)
 
+    print("Original text: ", text)
+    print("Encrypted text: ", encrypted_message(text, key, "e"))
+    print("Decrypted text: ", encrypted_message(encrypted_message(text, key, "e"), key, "d"))
 
-if __name__ == "__main__":
-    main()

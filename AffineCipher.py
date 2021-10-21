@@ -1,4 +1,4 @@
-def encrypt(text: str, key: list[int, int]) -> str:
+def encrypt(text, key):
     """
     Encrypts a message using Affine cipher
     :param text: original message
@@ -18,7 +18,7 @@ def encrypt(text: str, key: list[int, int]) -> str:
     return encrypted_string
 
 
-def decrypt(text: str, key: list[int, int]) -> str:
+def decrypt(text, key):
     """
     Decrypts a message encoded with Affine cipher
     :param text: encrypted message
@@ -49,22 +49,4 @@ def decrypt(text: str, key: list[int, int]) -> str:
             decrypted_string += char
     return decrypted_string
 
-
-def main():
-    """
-    Code execution starts here
-    :return: None
-    """
-    print("AFFINE CIPHER\n")
-    inp_text = input("Enter text: ")
-    text = inp_text.lower()
-    key = list(map(int, input("Enter space-separated a and b: ").split()))
-
-    print("\nOriginal text:", text)
-    print("Encrypted text:", encrypt(text, key))
-    print("Decrypted text:", decrypt(encrypt(text, key), key))
-
-
-if __name__ == "__main__":
-    main()
     
