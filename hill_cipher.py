@@ -89,7 +89,7 @@ def encrypted_message(text: str, key: str, conversion_type: str = "e") -> str:
     if conversion_type in ('d', 'D'):
         key_matrix = create_inverse_key_matrix(key)
         if not key_matrix:
-            return "Non-Invertible-Matrix (please choose a different key)"
+            return "Non-Invertible Matrix (please choose a different key)"
     else:
         key_matrix = create_key_matrix(key)
 

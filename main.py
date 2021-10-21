@@ -38,7 +38,11 @@ def main():
             print("\n-------------------------------CAESAR CIPHER--------------------------------")
             inp_text = input('Enter text: ')
             text = inp_text.lower()
-            key = int(input('Enter Integer key: '))
+            try:
+                key = int(input('Enter integer key: '))
+            except ValueError:
+                print("Please enter integer key.")
+                continue
 
             print()
             print("Original text: ", text)
@@ -49,7 +53,11 @@ def main():
             print("\n-------------------------------AFFINE CIPHER--------------------------------")
             inp_text = input("Enter text: ")
             text = inp_text.lower()
-            key = list(map(int, input("Enter space-separated integer values (a and b): ").split()))
+            try:
+                key = list(map(int, input("Enter space-separated key values (a and b): ").split()))
+            except ValueError:
+                print('Please enter integer keys')
+                continue
 
             print()
             print("\nOriginal text:", text)
@@ -72,7 +80,7 @@ def main():
             enc_text = inp_text.lower()
             possible_original_key, possible_original_text = freq_attack_affine.letter_frequency_attack(enc_text)
             if not possible_original_text:
-                print("Please enter long enough data to perform letter frequency attack.")
+                print("Please enter long enough text to perform letter frequency attack.")
                 continue
             print("\nTop 10 possible key and plaintext pairs:\n")
             for i in range(10):
@@ -90,7 +98,7 @@ def main():
             print("Exit")
             break
         else:
-            print("\nPlease enter valid input:")
+            print("\nPlease enter valid input.")
 
 
 if __name__ == "__main__":
