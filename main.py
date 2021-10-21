@@ -1,4 +1,6 @@
-import caesar_cipher, affine_cipher,
+import caesar_cipher, freq_attack_caesar, freq_attack_affine, affine_cipher, hill_cipher
+
+
 def main():
     menu = """\nChoose Options: 
     1. CAESAR CIPHER
@@ -8,12 +10,21 @@ def main():
     5. HILL CIPHER
     0. EXIT
     Enter Choice: """
+
+    conversion_type_string = '''\nChoose Conversion Type:
+    0. Encryption
+    1. Decryption
+    Enter Choice:'''
     
     choice = 1
+    conversion_type = 0
     while choice != 0 :
         print("\n****************************************************")
-        print(menu)
+        print(menu, end = " ")
         choice = int(input().strip())
+        if choice in (1, 2, 5):
+            print(conversion_type_string, end = " ")
+            conversion_type = int(input().strip())
         
         if choice == 1:
             print("******************CAESAR CIPHER*******************")
@@ -22,9 +33,8 @@ def main():
             key = int(input('Enter Integer key: '))
 
             print("\n")
-            print("Original text", text)
-            print('Encrypted text:', CaesarCipher.encrypt(text, key))
-            print('Decrypted text:', CaesarCipher.decrypt(CaesarCipher.encrypt(text, key), key))
+            print("Original text: ", text)
+            print('Result:', caesar_cipher.encrypt(text, key) if conversion_type == 0 else caesar_cipher.decrypt(text, key))
         
         elif choice == 2:
             print("******************AFFINE CIPHER*******************")
@@ -34,23 +44,23 @@ def main():
 
             print("\n")
             print("\nOriginal text:", text)
-            print("Encrypted text:", AffineCipher.encrypt(text, key))
-            print("Decrypted text:", AffineCipher.decrypt(AffineCipher.encrypt(text, key), key))
+            print('Result:', affine_cipher.encrypt(text, key) if conversion_type == 0 else affine_cipher.decrypt(text, key))
         
         elif choice == 3:
+            print("******************LETTER FREQUENCY ATTACK ON CAESAR CIPHER********************")
             inp_text = input('Enter the encrypted text: ')
             enc_text = inp_text.lower()
             print()
-            possible_original_key, possible_original_text = Q3.letter_frequency_attack(enc_text)
+            possible_original_key, possible_original_text = freq_attack_caesar.letter_frequency_attack(enc_text)
             for i in range(10):
                 print(f'{i+1}. Possible original key: {possible_original_key[i]}\n'
                     f'Possible original text: {possible_original_text[i]}\n')
         
         elif choice == 4:
+            print("****************LETTER FREQUENCY ATTACK ON AFFINE CIPHER*****************")
             inp_text = input('Enter the encrypted text: ')
             enc_text = inp_text.lower()
-            print()
-            possible_original_key, possible_original_text = Q4.letter_frequency_attack(enc_text)
+            possible_original_key, possible_original_text = freq_attack_affine.letter_frequency_attack(enc_text)
             if not possible_original_text:
                 print("Please enter long enough data to perform frequency attack.")
                 return
@@ -63,7 +73,7 @@ def main():
             inp_text = input("Enter text: ")
             inp_key = input("Enter String key: ")
             print("\n")
-            HillCipher.result(inp_text, inp_key)
+            hill_cipher.result(inp_text, inp_key, conversion_type)
         
         elif choice == 0:
             print("Exit")
