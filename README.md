@@ -1,5 +1,6 @@
 # Information-Security-Assignment
-This Repository is for different Encryption and decryption techniques.
+
+Repository for Internet Security Assignment for course MCAC303.
 
 ## Contributors:
 1. Nidhi Sangwan (29)
@@ -10,7 +11,7 @@ This Repository is for different Encryption and decryption techniques.
   
 ## Working:
 
-* Different questions are placed under separate modules and all of them are accessed from [main.py](https://github.com/vividsky/Information-Security-Assignment/blob/main/main.py)
+* Different questions of the assignment are placed under separate modules and all of them are accessed from [main.py](https://github.com/vividsky/Information-Security-Assignment/blob/main/main.py)
 
 ## 1. CAESAR CIPHER:
 
