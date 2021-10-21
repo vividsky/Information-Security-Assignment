@@ -1,4 +1,4 @@
-import CaesarCipher, Q3, Q4, AffineCipher, HillCipher
+import caesar_cipher, affine_cipher,
 def main():
     menu = """\nChoose Options: 
     1. CAESAR CIPHER
